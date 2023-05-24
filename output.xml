@@ -1,98 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.7.7 on win32)" generated="20230524 12:14:43.043" rpa="false" schemaversion="3">
-<suite id="s1" name="delete StudentDetails" source="C:\Users\KloverCloud\PycharmProjects\Api_Automation\StudentsDetails\delete_StudentDetails.robot">
-<test id="s1-t1" name="TC003 Delete Request" line="18">
+<robot generator="Robot 6.0.2 (Python 3.7.7 on win32)" generated="20230524 13:57:26.284" rpa="false" schemaversion="3">
+<suite id="s1" name="put studentDetails" source="C:\Users\KloverCloud\PycharmProjects\Api_Automation\StudentsDetails\put_studentDetails.robot">
+<test id="s1-t1" name="TC002 create new resource" line="17">
 <kw name="Create Session" library="RequestsLibrary">
-<arg>AppAccess</arg>
-<arg>${Base_Url}</arg>
+<arg>AddData</arg>
+<arg>${Base_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230524 12:14:43.250" level="INFO">Creating Session using : alias=AppAccess, url=http://thetestingworldapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230524 12:14:43.250" endtime="20230524 12:14:43.250"/>
+<msg timestamp="20230524 13:57:26.458" level="INFO">Creating Session using : alias=AddData, url=https://thetestingworldapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230524 13:57:26.458" endtime="20230524 13:57:26.458"/>
 </kw>
-<kw name="DELETE On Session" library="RequestsLibrary">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>id=7542816</arg>
+<arg>first_name=Testing</arg>
+<arg>middle_name=k077</arg>
+<arg>last_name=world</arg>
+<arg>date_of_birth=06/02/2000</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230524 13:57:26.458" level="INFO">${body} = {'id': '7542816', 'first_name': 'Testing', 'middle_name': 'k077', 'last_name': 'world', 'date_of_birth': '06/02/2000'}</msg>
+<status status="PASS" starttime="20230524 13:57:26.458" endtime="20230524 13:57:26.458"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Cotent-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230524 13:57:26.458" level="INFO">${header} = {'Cotent-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230524 13:57:26.458" endtime="20230524 13:57:26.458"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
 <var>${response}</var>
-<arg>AppAccess</arg>
-<arg>/api/studentsDetails/7542713</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<msg timestamp="20230524 12:14:43.628" level="INFO">DELETE Request : url=http://thetestingworldapi.com/api/studentsDetails/7542713 (redirected) 
- path_url=/api/studentsDetails/7542713 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
- body=None 
+<arg>AddData</arg>
+<arg>/api/studentsDetails/7542816</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230524 13:57:26.700" level="INFO">PUT Request : url=https://thetestingworldapi.com/api/studentsDetails/7542816 
+ path_url=/api/studentsDetails/7542816 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cotent-Type': 'application/json', 'Content-Length': '91', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=id=7542816&amp;first_name=Testing&amp;middle_name=k077&amp;last_name=world&amp;date_of_birth=06%2F02%2F2000 
  </msg>
-<msg timestamp="20230524 12:14:43.628" level="INFO">DELETE Response : url=https://thetestingworldapi.com/api/studentsDetails/7542713 
+<msg timestamp="20230524 13:57:26.700" level="INFO">PUT Response : url=https://thetestingworldapi.com/api/studentsDetails/7542816 
  status=200, reason=OK 
- headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Wed, 24 May 2023 06:14:44 GMT', 'Content-Length': '46'} 
- body={"status":"true","msg":"Delete  data success"} 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Wed, 24 May 2023 07:57:28 GMT', 'Content-Length': '46'} 
+ body={"status":"true","msg":"update  data success"} 
  </msg>
-<msg timestamp="20230524 12:14:43.628" level="INFO">C:\Users\KloverCloud\PycharmProjects\Api_Automation\venv\lib\site-packages\urllib3\connectionpool.py:1102: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg timestamp="20230524 13:57:26.700" level="INFO">C:\Users\KloverCloud\PycharmProjects\Api_Automation\venv\lib\site-packages\urllib3\connectionpool.py:1102: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   InsecureRequestWarning,</msg>
-<msg timestamp="20230524 12:14:43.628" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230524 12:14:43.250" endtime="20230524 12:14:43.628"/>
+<msg timestamp="20230524 13:57:26.700" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230524 13:57:26.458" endtime="20230524 13:57:26.700"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230524 12:14:43.628" endtime="20230524 12:14:43.628"/>
+<status status="PASS" starttime="20230524 13:57:26.700" endtime="20230524 13:57:26.715"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
+<status status="PASS" starttime="20230524 13:57:26.715" endtime="20230524 13:57:26.715"/>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <var>${code}</var>
 <arg>${response.status_code}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20230524 12:14:43.644" level="INFO">${code} = 200</msg>
-<status status="PASS" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
+<msg timestamp="20230524 13:57:26.715" level="INFO">${code} = 200</msg>
+<status status="PASS" starttime="20230524 13:57:26.715" endtime="20230524 13:57:26.715"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${code}</arg>
 <arg>200</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
+<status status="PASS" starttime="20230524 13:57:26.715" endtime="20230524 13:57:26.715"/>
 </kw>
-<kw>
-<var>${jsonresponse}=</var>
-<var>${resp.json()}</var>
-<var>${response.content}</var>
-<msg timestamp="20230524 12:14:43.644" level="FAIL">Keyword name cannot be empty.</msg>
-<status status="FAIL" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>AddData</arg>
+<arg>/api/studentsDetails/7542816</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230524 13:57:26.715" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230524 13:57:26.778" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/7542816 
+ path_url=/api/studentsDetails/7542816 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230524 13:57:26.778" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/7542816 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Wed, 24 May 2023 07:57:28 GMT', 'Content-Length': '132'} 
+ body={"status":"true","data":{"id":7542816,"first_name":"Testing","middle_name":"k077","last_name":"world","date_of_birth":"06/02/2000"}} 
+ </msg>
+<msg timestamp="20230524 13:57:26.778" level="INFO">C:\Users\KloverCloud\PycharmProjects\Api_Automation\venv\lib\site-packages\urllib3\connectionpool.py:1102: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20230524 13:57:26.778" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230524 13:57:26.715" endtime="20230524 13:57:26.778"/>
 </kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>@{status_list}</var>
-<arg>${jsonresponse}</arg>
-<arg>status</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<status status="NOT RUN" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230524 13:57:26.778" endtime="20230524 13:57:26.778"/>
 </kw>
-<kw name="Get From List" library="Collections">
-<var>${status}</var>
-<arg>@{status_list}</arg>
-<arg>0</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="NOT RUN" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${status}</arg>
-<arg>true</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" starttime="20230524 12:14:43.644" endtime="20230524 12:14:43.644"/>
-</kw>
-<status status="FAIL" starttime="20230524 12:14:43.250" endtime="20230524 12:14:43.644">Keyword name cannot be empty.</status>
+<status status="PASS" starttime="20230524 13:57:26.458" endtime="20230524 13:57:26.778"/>
 </test>
-<status status="FAIL" starttime="20230524 12:14:43.043" endtime="20230524 12:14:43.644"/>
+<status status="PASS" starttime="20230524 13:57:26.301" endtime="20230524 13:57:26.793"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="delete StudentDetails">delete StudentDetails</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="put studentDetails">put studentDetails</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20230524 13:57:26.715" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
 </errors>
 </robot>
