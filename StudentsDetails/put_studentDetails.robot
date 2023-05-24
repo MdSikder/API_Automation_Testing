@@ -16,11 +16,11 @@ ${Base_URL}=    https://thetestingworldapi.com
 *** Test Cases ***
 TC002 create new resource
     create session    AddData   ${Base_URL}
-    ${body}=    create dictionary    id=7542816    first_name=Testing    middle_name=k077    last_name=world    date_of_birth=06/02/2000
+    ${body}=    create dictionary    id=7542856    first_name=Md    middle_name=Rased    last_name=Sikder    date_of_birth=12/12/1988
     # for define body type--header--means what kind of input you send--header could be multiple
     ${header}=  create dictionary    Cotent-Type=application/json
 
-    ${response}=    PUT On Session    AddData      /api/studentsDetails/7542816     data=${body}    headers=${header}
+    ${response}=    PUT On Session    AddData      /api/studentsDetails/7542856     data=${body}    headers=${header}
 
 
 
@@ -36,5 +36,5 @@ TC002 create new resource
 #    should contain     ${body}      tisa
 
     # for check uapdated or not
-    ${response}=    get request    AddData      /api/studentsDetails/7542816
+    ${response}=    get request    AddData      /api/studentsDetails/7542856
     log to console    ${response.content}

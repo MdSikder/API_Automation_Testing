@@ -12,7 +12,7 @@ Library    Collections
 
 
 *** Variables ***
-${Base_URL}=    https://thetestingworldapi.com/
+${Base_URL}=    https://thetestingworldapi.com
 *** Test Cases ***
 TC002 create new resource
     create session    AddData   ${Base_URL}
@@ -20,7 +20,7 @@ TC002 create new resource
     # for define body type--header--means what kind of input you send--header could be multiple
     ${header}=  create dictionary    Cotent-Type=application/json
 
-    ${response}=    POST On Session    AddData      api/studentsDetails     data=${body}    headers=${header}
+    ${response}=    POST On Session    AddData      /api/studentsDetails     data=${body}    headers=${header}
 
 
 
