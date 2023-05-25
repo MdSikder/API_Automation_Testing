@@ -11,7 +11,7 @@ ${city}    Delhi
 *** Test Cases ***
 Get_Info
     create session    myssion   ${base_url}
-    ${response}=    GET On Session    myssion     utilites/weather/city/${city}
+    ${response}=    GET On Session    myssion     utilites/weather/${city}
 
 
 #    log to console    ${response.status_code}

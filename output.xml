@@ -1,90 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.7.7 on win32)" generated="20230524 14:15:12.444" rpa="false" schemaversion="3">
-<suite id="s1" name="delete StudentDetails" source="C:\Users\KloverCloud\PycharmProjects\Api_Automation\StudentsDetails\delete_StudentDetails.robot">
-<test id="s1-t1" name="TC003 Delete Request" line="18">
+<robot generator="Robot 6.0.2 (Python 3.7.7 on win32)" generated="20230525 13:52:06.852" rpa="false" schemaversion="3">
+<suite id="s1" name="Post Get Put Delete" source="C:\Users\KloverCloud\PycharmProjects\Api_Automation\Post-Get-Put-Delete\post_get_put_delete.robot">
+<test id="s1-t1" name="Get new resource" line="52">
 <kw name="Create Session" library="RequestsLibrary">
-<arg>AppAccess</arg>
-<arg>${Base_Url}</arg>
+<arg>AddData</arg>
+<arg>${Base_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230524 14:15:12.603" level="INFO">Creating Session using : alias=AppAccess, url=https://thetestingworldapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230524 14:15:12.603" endtime="20230524 14:15:12.603"/>
+<msg timestamp="20230525 13:52:07.027" level="INFO">Creating Session using : alias=AddData, url=https://thetestingworldapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230525 13:52:07.027" endtime="20230525 13:52:07.027"/>
 </kw>
-<kw name="DELETE On Session" library="RequestsLibrary">
+<kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
-<arg>AppAccess</arg>
-<arg>/api/studentsDetails/7542856</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<msg timestamp="20230524 14:15:13.010" level="INFO">DELETE Request : url=https://thetestingworldapi.com/api/studentsDetails/7542856 
- path_url=/api/studentsDetails/7542856 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+<arg>AddData</arg>
+<arg>/api/studentsDetails/7543132</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230525 13:52:09.034" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/7543132 
+ path_url=/api/studentsDetails/7543132 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230524 14:15:13.010" level="INFO">DELETE Response : url=https://thetestingworldapi.com/api/studentsDetails/7542856 
+<msg timestamp="20230525 13:52:09.034" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/7543132 
  status=200, reason=OK 
- headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Wed, 24 May 2023 08:15:14 GMT', 'Content-Length': '46'} 
- body={"status":"true","msg":"Delete  data success"} 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Thu, 25 May 2023 07:52:08 GMT', 'Content-Length': '129'} 
+ body={"status":"true","data":{"id":7543132,"first_name":"Md","middle_name":"porag","last_name":"sorkar","date_of_birth":"11/12/1988"}} 
  </msg>
-<msg timestamp="20230524 14:15:13.010" level="INFO">C:\Users\KloverCloud\PycharmProjects\Api_Automation\venv\lib\site-packages\urllib3\connectionpool.py:1102: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg timestamp="20230525 13:52:09.035" level="INFO">C:\Users\KloverCloud\PycharmProjects\Api_Automation\venv\lib\site-packages\urllib3\connectionpool.py:1102: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   InsecureRequestWarning,</msg>
-<msg timestamp="20230524 14:15:13.010" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230524 14:15:12.603" endtime="20230524 14:15:13.010"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${response.status_code}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230524 14:15:13.010" endtime="20230524 14:15:13.010"/>
+<msg timestamp="20230525 13:52:09.035" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230525 13:52:07.028" endtime="20230525 13:52:09.036"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230524 14:15:13.010" endtime="20230524 14:15:13.010"/>
+<status status="PASS" starttime="20230525 13:52:09.036" endtime="20230525 13:52:09.039"/>
 </kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${code}</var>
-<arg>${response.status_code}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20230524 14:15:13.025" level="INFO">${code} = 200</msg>
-<status status="PASS" starttime="20230524 14:15:13.010" endtime="20230524 14:15:13.025"/>
+<kw name="Log List" library="Collections">
+<arg>${response.json()}</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230525 13:52:09.040" level="INFO">List length is 2 and it contains following items:
+0: status
+1: data</msg>
+<status status="PASS" starttime="20230525 13:52:09.039" endtime="20230525 13:52:09.041"/>
 </kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${code}</arg>
-<arg>200</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230524 14:15:13.025" endtime="20230524 14:15:13.025"/>
+<for flavor="IN">
+<var>${booking}</var>
+<value>@{response.json()}</value>
+<iter>
+<var name="${booking}">status</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://restful-booker.herokuapp.com/booking/${booking}'\[id]'</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230525 13:52:11.525" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/status'%5Bid%5D' 
+ path_url=/booking/status'%5Bid%5D' 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230525 13:52:11.525" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/status'%5Bid%5D' 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Date': 'Thu, 25 May 2023 07:52:11 GMT', 'Via': '1.1 vegur'} 
+ body=Not Found 
+ </msg>
+<msg timestamp="20230525 13:52:11.525" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/status'%5Bid%5D'</msg>
+<status status="FAIL" starttime="20230525 13:52:09.041" endtime="20230525 13:52:11.528"/>
 </kw>
-<kw name="To Json" library="RequestsLibrary">
-<var>${jsonresponse}</var>
-<arg>${response.content}</arg>
-<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<msg timestamp="20230524 14:15:13.025" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg timestamp="20230524 14:15:13.025" level="INFO">To JSON using : content={"status":"true","msg":"Delete  data success"} </msg>
-<msg timestamp="20230524 14:15:13.025" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20230524 14:15:13.025" level="INFO">${jsonresponse} = {'status': 'true', 'msg': 'Delete  data success'}</msg>
-<status status="PASS" starttime="20230524 14:15:13.025" endtime="20230524 14:15:13.025"/>
+<try>
+<branch type="TRY">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230525 13:52:11.529" endtime="20230525 13:52:11.529"/>
 </kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>@{status_list}</var>
-<arg>${jsonresponse}</arg>
-<arg>status</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20230524 14:15:13.042" level="INFO">@{status_list} = [ true ]</msg>
-<status status="PASS" starttime="20230524 14:15:13.025" endtime="20230524 14:15:13.042"/>
+<status status="NOT RUN" starttime="20230525 13:52:11.529" endtime="20230525 13:52:11.529"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Cannot retrieve JSON due to invalid data</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230525 13:52:11.529" endtime="20230525 13:52:11.529"/>
 </kw>
-<status status="PASS" starttime="20230524 14:15:12.603" endtime="20230524 14:15:13.057"/>
+<status status="NOT RUN" starttime="20230525 13:52:11.529" endtime="20230525 13:52:11.529"/>
+</branch>
+<status status="NOT RUN" starttime="20230525 13:52:11.529" endtime="20230525 13:52:11.529"/>
+</try>
+<status status="FAIL" starttime="20230525 13:52:09.041" endtime="20230525 13:52:11.529"/>
+</iter>
+<status status="FAIL" starttime="20230525 13:52:09.041" endtime="20230525 13:52:11.529"/>
+</for>
+<tag>get-info</tag>
+<status status="FAIL" starttime="20230525 13:52:07.026" endtime="20230525 13:52:11.530">HTTPError: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/status'%5Bid%5D'</status>
 </test>
-<status status="PASS" starttime="20230524 14:15:12.444" endtime="20230524 14:15:13.057"/>
+<status status="FAIL" starttime="20230525 13:52:06.854" endtime="20230525 13:52:11.532"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">get-info</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="delete StudentDetails">delete StudentDetails</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Post Get Put Delete">Post Get Put Delete</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230524 14:15:13.025" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
